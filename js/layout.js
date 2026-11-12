@@ -7,11 +7,38 @@ const AMP={W01:210,W02:250,W03:190,W04:170,W05:260,W06:160,W07:220,W08:270,W09:1
 const X0=190,Y0=870,X1=1730,Y1=250;               // start i meta
 const MIN_X=110,MAX_X=1810,MIN_Y=200,MAX_Y=900;   // bezpieczny obszar (góra i dół zostają dla paneli)
 
+/* Trasy dopasowane do namalowanej drogi na grafice planszy (współrzędne w pikselach grafiki 1672×941). */
+const ART_W=1672,ART_H=941;
+export const ROUTES={
+  W08:{pts:[[110,760],[270,690],[450,610],[650,525],[850,450],[1050,385],[1230,305],[1380,225],[1500,160]],weave:{k:3,amp:62}}
+};
+function routeDense({pts,weave},N){
+  const P=pts.map(([x,y])=>[x*WORLD_W/ART_W,y*WORLD_H/ART_H]);
+  const g=i=>P[Math.max(0,Math.min(P.length-1,i))],out=[];
+  const segs=P.length-1;
+  for(let i=0;i<=N;i++){
+    const u=i/N*segs,k=Math.min(segs-1,Math.floor(u)),t=u-k;
+    const p0=g(k-1),p1=g(k),p2=g(k+1),p3=g(k+2);
+    const c=(a,b,c2,d)=>0.5*((2*b)+(-a+c2)*t+(2*a-5*b+4*c2-d)*t*t+(-a+3*b-3*c2+d)*t*t*t);
+    out.push([c(p0[0],p1[0],p2[0],p3[0]),c(p0[1],p1[1],p2[1],p3[1])]);
+  }
+  if(weave){ // łagodne esy-floresy w obrębie szerokiej drogi, żeby trasa była dość długa
+    const base=out.map(q=>[...q]);
+    for(let i=0;i<=N;i++){
+      const a=base[Math.max(0,i-1)],b=base[Math.min(N,i+1)],dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1,t=i/N;
+      const off=weave.amp*Math.pow(Math.sin(Math.PI*t),0.5)*Math.sin(2*Math.PI*weave.k*t+0.6);
+      out[i]=[base[i][0]-dy/l*off,base[i][1]+dx/l*off];
+    }
+  }
+  return out;
+}
+
 export function layoutBoard(board){
   const wid=board.id,n=Number(wid.slice(1))||1,k=WAVES[wid]||3,amp=AMP[wid]||200,ph=(n*0.83)%(Math.PI*2);
   const dx=X1-X0,dy=Y1-Y0,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len,nx=-uy,ny=ux; // normalna
-  const N=600,dense=[];
-  for(let i=0;i<=N;i++){
+  const N=600;let dense=[];
+  if(ROUTES[wid]){dense=routeDense(ROUTES[wid],N);dense=dense.map(([x,y])=>[Math.min(MAX_X,Math.max(MIN_X,x)),Math.min(MAX_Y,Math.max(MIN_Y,y))])}
+  else for(let i=0;i<=N;i++){
     const t=i/N,env=Math.pow(Math.sin(Math.PI*t),0.6);
     const off=amp*env*Math.sin(2*Math.PI*k*t+ph);
     let x=X0+dx*t+nx*off,y=Y0+dy*t+ny*off;

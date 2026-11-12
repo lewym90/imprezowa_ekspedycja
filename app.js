@@ -1,8 +1,10 @@
 import {createGame,dispatch,getPublicState,snapshot,restore,getPrivateState} from './src/engine.js';
 import {createBoardView,probeArt} from './js/board-view.js';
+import {connectNet,netAvailable} from './js/net.js';
 const $=s=>document.querySelector(s);const app=$('#app');
 const VERSION='0.6.0';
 let cards=[],worlds=[],events=[],missions=[];
+let net=null,netInfo=null,netOk=false,wakeLock=null;
 let state=null,worldId='W01',mode='COMPETITIVE',playerCount=4,toastTimer,timerTick,boardView=null,diceKey='';
 const PREF_KEY='ie-prefs-v1';let prefs={fontScale:1,reduceMotion:false,highContrast:false,sound:false,confirmQuit:true};try{prefs={...prefs,...JSON.parse(localStorage.getItem(PREF_KEY)||'{}')}}catch{}
 const worldDesc={W01:'Przetrwajcie na wyspie, naprawcie łódź i odnajdźcie drogę do domu.',W02:'Odkryjcie sekrety zamku, zanim zamkną się wszystkie przejścia.',W03:'Rozwikłajcie miejską intrygę i dotrzyjcie do prawdy.',W04:'Ocalcie misję kosmiczną i przywróćcie działanie stacji.',W05:'Przetrwajcie pojedynek charakterów na Dzikim Zachodzie.',W06:'Eksperyment wymknął się spod kontroli. Przywróćcie porządek.',W07:'Przejdźcie przez hotel, w którym nic nie jest takie, jak wygląda.',W08:'Odnajdźcie niemożliwy eksponat i rozwiążcie zagadkę muzeum.',W09:'Opanujcie festiwalowy chaos i dotrzyjcie na główną scenę.',W10:'Ostatni pociąg skrywa tajemnicę. Nie przegapcie ostatniego wagonu.',W11:'Odróżnijcie prawdę od odbić w królestwie luster.',W12:'Przemierzcie archipelag snów i odnajdźcie drogę na szczyt.'};
@@ -22,20 +24,22 @@ function dieHtml(v,roll){
 function applyPrefs(){document.documentElement.style.setProperty('--font-scale',String(prefs.fontScale));document.body.classList.toggle('reduce-motion',!!prefs.reduceMotion);document.body.classList.toggle('high-contrast',!!prefs.highContrast)}applyPrefs();
 function notify(msg){let el=$('.toast');if(!el){el=document.createElement('div');el.className='toast';document.body.append(el)}el.textContent=msg;clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.remove(),2600)}
 function save(){if(state){try{localStorage.setItem('ie-save-v1',JSON.stringify(snapshot(state)))}catch(e){notify('Nie udało się zapisać gry lokalnie')}}}
-function cmd(type,payload={}){try{const r=dispatch(state,{type,commandId:`ui-${Date.now()}-${Math.random().toString(16).slice(2)}`,...payload});state=r.state;save();renderGame()}catch(e){notify(e.message)}}
+function cmd(type,payload={}){
+  if(netInfo){const commandId=`n-${Date.now()}-${Math.random().toString(16).slice(2)}`;if(!net?.send({t:'cmd',command:{type,commandId,...payload}}))notify('Brak połączenia z serwerem — próbuję ponownie…');return}
+  try{const r=dispatch(state,{type,commandId:`ui-${Date.now()}-${Math.random().toString(16).slice(2)}`,...payload});state=r.state;save();renderGame()}catch(e){notify(e.message)}}
 function bindCommon(){ $('#tv')?.addEventListener('click',()=>{document.body.classList.toggle('tv');notify(document.body.classList.contains('tv')?'Włączono widok TV':'Przywrócono widok standardowy')});$('#controller')?.addEventListener('click',()=>state?renderPrivateController():notify('Najpierw rozpocznij ekspedycję'));$('#backup')?.addEventListener('click',()=>renderBackupModal());$('#settings')?.addEventListener('click',()=>renderSettingsModal());$('#install')?.addEventListener('click',async()=>{if(window.deferredPrompt){window.deferredPrompt.prompt();window.deferredPrompt=null}else notify('Aby zainstalować: użyj opcji „Dodaj do ekranu początkowego” w przeglądarce')}) }
 function renderSettingsModal(){const wrap=document.createElement('div');wrap.innerHTML=`<div class="modal-backdrop" id="prefsBackdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="prefsTitle"><div class="section-head"><div><div class="eyebrow">Personalizacja</div><h2 id="prefsTitle">Ustawienia aplikacji</h2></div><button class="icon-btn" id="prefsClose" aria-label="Zamknij">×</button></div><div class="field"><label for="fontScale">Rozmiar tekstu</label><select id="fontScale"><option value="0.9">Mały</option><option value="1">Standardowy</option><option value="1.15">Duży</option><option value="1.3">Bardzo duży</option></select></div><label class="setting-line"><input id="reduceMotion" type="checkbox"> Ogranicz animacje</label><label class="setting-line"><input id="highContrast" type="checkbox"> Zwiększony kontrast</label><label class="setting-line"><input id="sound" type="checkbox"> Dźwięki interfejsu (rezerwacja ustawienia)</label><label class="setting-line"><input id="confirmQuit" type="checkbox"> Potwierdzaj powrót do menu</label><p class="muted">Preferencje są zapisywane lokalnie na tym urządzeniu. Dźwięki nie są jeszcze emitowane w tej wersji.</p><button class="btn primary" id="prefsSave">Zapisz ustawienia</button></section></div>`;document.body.append(wrap);const close=()=>wrap.remove();$('#prefsClose').onclick=close;$('#prefsBackdrop').onclick=e=>{if(e.target.id==='prefsBackdrop')close()};$('#fontScale').value=String(prefs.fontScale);for(const k of ['reduceMotion','highContrast','sound','confirmQuit'])$('#'+k).checked=!!prefs[k];$('#prefsSave').onclick=()=>{prefs={fontScale:Number($('#fontScale').value),reduceMotion:$('#reduceMotion').checked,highContrast:$('#highContrast').checked,sound:$('#sound').checked,confirmQuit:$('#confirmQuit').checked};localStorage.setItem(PREF_KEY,JSON.stringify(prefs));applyPrefs();close();notify('Ustawienia zapisane')};}
 function renderBackupModal(){const wrap=document.createElement('div');wrap.innerHTML=`<div class="modal-backdrop" id="backupBackdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="backupTitle"><div class="section-head"><div><div class="eyebrow">Bezpieczeństwo zapisu</div><h2 id="backupTitle">Kopia zapasowa</h2></div><button class="icon-btn" id="backupClose" aria-label="Zamknij">×</button></div><p class="muted">Eksport obejmuje bieżący zapis gry, jeśli istnieje. Import zastępuje zapis na tym urządzeniu. Zachowaj plik w bezpiecznym miejscu.</p><div class="actions"><button class="btn primary" id="exportSave">Eksportuj zapis gry</button><button class="btn" id="exportPrefs">Eksportuj preferencje</button></div><div class="field" style="margin-top:18px"><label for="importFile">Importuj zapis z pliku JSON</label><input type="file" id="importFile" accept="application/json,.json"></div><div class="field"><label for="importPrefsFile">Importuj preferencje z pliku JSON</label><input type="file" id="importPrefsFile" accept="application/json,.json"></div><p class="muted" id="backupStatus" aria-live="polite"></p></section></div>`;document.body.append(wrap);const close=()=>wrap.remove();$('#backupClose').onclick=close;$('#backupBackdrop').onclick=e=>{if(e.target.id==='backupBackdrop')close()};const download=(name,obj)=>{const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};$('#exportSave').onclick=()=>{const raw=state?snapshot(state):localStorage.getItem('ie-save-v1');if(!raw){$('#backupStatus').textContent='Brak zapisu do eksportu.';return}download(`imprezowa-ekspedycja-zapis-${new Date().toISOString().slice(0,10)}.json`,typeof raw==='string'?JSON.parse(raw):raw);$('#backupStatus').textContent='Zapis wyeksportowany.'};$('#exportPrefs').onclick=()=>download('imprezowa-ekspedycja-preferencje.json',prefs);$('#importFile').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const obj=JSON.parse(await f.text()),candidate=restore(obj);if(!candidate||!Array.isArray(candidate.players)||candidate.players.length<2||candidate.players.length>10)throw Error('Nieprawidłowy format zapisu');state=candidate;save();$('#backupStatus').textContent='Zapis zaimportowany i zweryfikowany.';renderGame();close()}catch(err){$('#backupStatus').textContent=`Import odrzucony: ${err.message}`}};$('#importPrefsFile').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const obj=JSON.parse(await f.text());if(!obj||typeof obj!=='object'||!['fontScale','reduceMotion','highContrast','sound','confirmQuit'].some(k=>k in obj))throw Error('Nieprawidłowy plik preferencji');prefs={...prefs,...obj};prefs.fontScale=Math.min(1.5,Math.max(.8,Number(prefs.fontScale)||1));localStorage.setItem(PREF_KEY,JSON.stringify(prefs));applyPrefs();$('#backupStatus').textContent='Preferencje zaimportowane.'}catch(err){$('#backupStatus').textContent=`Import odrzucony: ${err.message}`}};}
 function timerText(){if(!state?.cardTimer)return '—:—';const t=state.cardTimer;const left=t.running?Math.max(0,t.remainingSec-Math.floor((Date.now()-t.startedAt)/1000)):t.remainingSec;return `${String(Math.floor(left/60)).padStart(2,'0')}:${String(left%60).padStart(2,'0')}`}
 function phasePanel(){const p=state.players[state.activeIndex];let html='';if(state.phase==='TURN_START')html=`${dieHtml(5,false)}<h2>Ruch należy do ${esc(p.name)}</h2><p>Rzuć kostką, aby rozpocząć swoją turę.</p><button class="btn primary" data-cmd="ROLL">Rzuć kostką</button>`;else if(state.phase==='ROLL_REVIEW')html=`${dieHtml(state.lastRoll||1,true)}<h2>Wynik rzutu: ${state.lastRoll}</h2><button class="btn primary" data-cmd="CONFIRM_ROLL">Zatwierdź ruch</button>`;else if(state.phase==='PATH_CHOICE')html=`<h2>Wybierz rozwidlenie</h2><p>Wybierz jedną z dostępnych dróg.</p>${state.pendingChoices.map(id=>`<button class="btn" data-path="${id}">${esc(state.board.nodes.find(n=>n.id===id)?.label||id)}</button>`).join('')}`;else if(state.phase==='CARD_READY'||state.phase==='CARD_ACTIVE'){const c=state.activeCard;html=`<div class="eyebrow">${state.phase==='CARD_READY'?'Nowe wyzwanie':'Wyzwanie w toku'}</div><div class="card-face"><span class="tag">${esc(c.category)}</span><h3>${esc(c.title)}</h3><p>${state.phase==='CARD_ACTIVE'?esc(c.instructions):'Instrukcja zostanie odsłonięta po zatwierdzeniu karty.'}</p><div class="muted">⏱ ${c.durationSec||0} sekund · Intensywność ${c.intensity||1}/3</div></div><div class="actions">${state.phase==='CARD_READY'?'<button class="btn primary" data-cmd="CONFIRM_READY">Odkryj instrukcję</button>':'<button class="btn primary" data-outcome="success">Zaliczone</button><button class="btn" data-outcome="failure">Niepowodzenie</button><button class="btn ghost" data-outcome="neutral">Bez rozstrzygnięcia</button>'}<button class="btn ghost" data-cmd="SKIP_CARD">Pomiń bez kary</button></div>${state.phase==='CARD_ACTIVE'?`<div class="card-face"><div class="eyebrow">Licznik wyzwania</div><div id="timerDisplay" class="timer">${timerText()}</div><div class="actions">${!state.cardTimer?'<button class="btn" data-cmd="TIMER_START">Start</button>':state.cardTimer.running?'<button class="btn" data-cmd="TIMER_PAUSE">Pauza</button>':!state.cardTimer.stopped?'<button class="btn" data-cmd="TIMER_RESUME">Wznów</button>':''}<button class="btn ghost" data-cmd="TIMER_STOP" ${state.cardTimer?'':'disabled'}>Stop</button></div></div>`:''}`;}else if(state.phase==='STEP_COMPLETE')html=`<h2>Etap zakończony</h2><p>Możesz zakończyć turę lub kontynuować ruch, jeśli pozostały kroki.</p><button class="btn primary" data-cmd="END_TURN">Zakończ turę</button>`;else if(state.phase==='FINALE')html=`<div class="eyebrow">Wielki finał</div><h2>Ostatnia próba</h2><p>${esc(state.scenario.finale||'Wykonajcie finałowe wyzwanie.')}</p><p class="muted">Warunki: ${state.checkpoints.length}/3 checkpointów · energia ${state.teamResource}</p><button class="btn primary" data-outcome="success" ${getPublicState(state).finaleEligibility.ready?'':'disabled'}>Finał zakończony sukcesem</button><button class="btn" data-outcome="failure">Finał nieudany</button>`;else if(state.phase==='FINISHED')html=`<div class="eyebrow">Ekspedycja zakończona</div><h2>${state.result==='DEFEAT'?'Tym razem świat wygrał':'Legenda zapamięta tę ekipę'}</h2><p>${state.winners?.length?`Zwycięzcy: ${state.winners.map(id=>state.players.find(p=>p.id===id)?.name).join(', ')}`:'Brak zwycięzcy.'}</p><button class="btn primary" id="home">Wróć do menu</button>`;else if(state.phase==='TIEBREAK')html=`<h2>Dogrywka</h2><p>Wybierz zwycięzcę dogrywki.</p>${state.tiedPlayers.map(id=>`<button class="btn" data-tie="${id}">${esc(state.players.find(p=>p.id===id).name)}</button>`).join('')}`;else html=`<h2>${esc(state.phase)}</h2><p>Stan rozgrywki.</p>`;return html}
 function renderPrivateController(playerId){
- if(!state)return;const pid=playerId||state.players[state.activeIndex]?.id;const player=state.players.find(p=>p.id===pid);if(!player)return;
- const priv=getPrivateState(state,pid);const cardsOwned=player.specialCards||[];
+ if(!state)return;const pid=netInfo?.seat||playerId||state.players[state.activeIndex]?.id;const player=state.players.find(p=>p.id===pid);if(!player)return;
+ const priv=netInfo?(netInfo.priv||{}):getPrivateState(state,pid);const cardsOwned=player.specialCards||[];
  const mission=priv.secretMission;const vote=state.vote?.status==='OPEN'?state.vote:null;
  const partnerOptions=state.players.filter(p=>p.id!==pid).map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('');
  const voteOptions=vote?vote.eligiblePlayerIds.filter(id=>id!==pid||vote.allowSelfVote).map(id=>`<option value="${id}">${esc(state.players.find(p=>p.id===id)?.name||id)}</option>`).join(''):'';
  const specialNames={JOKER:'Joker',TARCZA:'Tarcza',KOMPAS:'Kompas',ZWIADOWCA:'Zwiadowca',ZAMROŻENIE:'Zamrożenie',WSPÓŁPRACA:'Współpraca',SKROT:'Skrót',REZERWA:'Rezerwa'};
- const html=`<div class="modal-backdrop" id="controllerBackdrop"><section class="modal controller-modal"><div class="section-head"><div><div class="eyebrow">Kontroler prywatny · lokalny</div><h2>Panel gracza</h2></div><button class="icon-btn" id="closeController">×</button></div><p class="muted">Ten ekran pokazuje informacje wyłącznie po wybraniu gracza na tym urządzeniu. Oddzielne telefony i synchronizacja sieciowa wymagają backendu z kolejnego etapu.</p><div class="field"><label for="controllerPlayer">Wybierz gracza — przekaż urządzenie tej osobie</label><select id="controllerPlayer">${state.players.map(p=>`<option value="${p.id}" ${p.id===pid?'selected':''}>${esc(p.name)}</option>`).join('')}</select></div><div class="panel" style="margin-top:14px"><div class="eyebrow">Twoje konto</div><h2>${esc(player.name)}</h2><div class="stat-grid"><div class="stat-card"><strong>${player.score}</strong><span>Punkty</span></div><div class="stat-card"><strong>${player.completedObjectives||0}</strong><span>Ukończone cele</span></div></div></div>
+ const html=`<div class="modal-backdrop" id="controllerBackdrop"><section class="modal controller-modal"><div class="section-head"><div><div class="eyebrow">Kontroler prywatny${netInfo?'':' · lokalny'}</div><h2>Panel gracza</h2></div><button class="icon-btn" id="closeController">×</button></div><p class="muted">${netInfo?'Te informacje widzisz tylko Ty — serwer nie wysyła ich nikomu innemu.':'Ten ekran pokazuje informacje wyłącznie po wybraniu gracza na tym urządzeniu.'}</p><div class="field" ${netInfo?'hidden':''}><label for="controllerPlayer">Wybierz gracza — przekaż urządzenie tej osobie</label><select id="controllerPlayer">${state.players.map(p=>`<option value="${p.id}" ${p.id===pid?'selected':''}>${esc(p.name)}</option>`).join('')}</select></div><div class="panel" style="margin-top:14px"><div class="eyebrow">Twoje konto</div><h2>${esc(player.name)}</h2><div class="stat-grid"><div class="stat-card"><strong>${player.score}</strong><span>Punkty</span></div><div class="stat-card"><strong>${player.completedObjectives||0}</strong><span>Ukończone cele</span></div></div></div>
  <div class="panel" style="margin-top:12px"><div class="eyebrow">Tajna misja</div>${mission?`<h3>${esc(mission.title)}</h3><p>${esc(mission.instructions||mission.description||'Wykonaj tajną misję i rozlicz ją po zakończeniu.')}</p><div class="actions"><button class="btn primary" id="missionSuccess">Ukończono</button><button class="btn ghost" id="missionFailure">Nie udało się</button><button class="btn ghost" id="missionSkip">Pomiń</button></div>`:'<p class="muted">Brak aktywnej tajnej misji.</p>'}</div>
  <div class="panel" style="margin-top:12px"><div class="eyebrow">Karty specjalne</div>${cardsOwned.length?cardsOwned.map(id=>`<div class="player-row"><span>${esc(specialNames[id]||id)}</span><button class="btn" data-special="${esc(id)}">Użyj</button></div>`).join(''):'<p class="muted">Nie masz kart specjalnych.</p>'}<div id="specialExtra"></div></div><div class="panel" style="margin-top:12px"><div class="eyebrow">Osiągnięcia ekspedycji</div>${(state.achievements||[]).length?state.achievements.map(a=>`<div class="player-row"><span>${esc(typeof a==='string'?a:(a.title||a.id))}</span><span class="tag">Zdobyte</span></div>`).join(''):'<p class="muted">Jeszcze nie zdobyto osiągnięć.</p>'}</div>
  ${vote?`<div class="panel" style="margin-top:12px"><div class="eyebrow">Aktywne głosowanie</div><p>${esc(vote.subject)}</p><div class="field"><label for="voteChoice">Twój głos</label><select id="voteChoice">${voteOptions}</select></div><button class="btn primary" id="castVote" ${vote.votes[pid]?'disabled':''}>Oddaj głos</button><p class="muted">Oddane głosy: ${Object.keys(vote.votes).length}/${vote.eligiblePlayerIds.length}</p></div>`:''}
@@ -54,10 +58,10 @@ function renderHome(){
     <img class="home-emblem" src="assets/brand/emblem.png" alt="" width="256" height="256">
     <div><h1 class="gold-text"><span>Imprezowa</span><span>Ekspedycja</span></h1><div class="sub" style="margin-top:.8rem">Gra towarzyska bez końca</div></div>
     <p class="slogan">Rzuć kostką. Otwórz przejście. Zrób z siebie legendę.</p>
-    <div class="home-actions"><button class="btn primary big" id="newGame">Nowa gra</button><button class="btn ghost big" id="continue" ${hasSave?'':'disabled'}>Wczytaj ostatnią grę</button></div>
+    <div class="home-actions"><button class="btn primary big" id="newGame">Nowa gra</button><button class="btn ghost big" id="continue" ${hasSave?'':'disabled'}>Wczytaj ostatnią grę</button><button class="btn ghost big" id="joinPhone">Dołącz telefonem</button></div>
   </div>
   <div><div class="home-foot">${ib('settings','gear','Ustawienia')}${ib('backup','backup','Kopia zapasowa')}${ib('tv','tv','Tryb telewizora')}${ib('install','install','Zainstaluj aplikację')}</div><div class="home-ver">Wersja ${VERSION} · działa offline po pierwszym uruchomieniu</div></div></main>`;
-  bindCommon();$('#newGame').onclick=renderWorlds;
+  bindCommon();$('#newGame').onclick=renderWorlds;$('#joinPhone').onclick=()=>renderJoin();
   $('#continue').onclick=()=>{try{const raw=localStorage.getItem('ie-save-v1');if(!raw)throw Error('Brak zapisanego stanu gry');state=restore(JSON.parse(raw));renderGame()}catch(e){notify(e.message)}};
 }
 function renderWorlds(){
@@ -67,7 +71,7 @@ function renderWorlds(){
   document.querySelectorAll('[data-world]').forEach(el=>el.onclick=()=>renderSetup(el.dataset.world));
 }
 const NAMES=['Alicja','Marek','Kasia','Tomek','Ola','Wojtek','Magda','Piotr','Ewa','Kuba'];
-let setupState={count:4,mode:'COMPETITIVE',intensity:2,missions:true,names:[...NAMES],seed:0};
+let setupState={net:'local',count:4,mode:'COMPETITIVE',intensity:2,missions:true,names:[...NAMES],seed:0};
 function renderSetup(id){
   worldId=id;const w=worlds.find(x=>x.id===id);const S=setupState;
   const seg=(key,opts)=>`<div class="seg" role="group">${opts.map(([v,l,c])=>`<button type="button" data-seg="${key}" data-v="${v}" class="${c||''}" aria-pressed="${String(S[key])===String(v)}">${l}</button>`).join('')}</div>`;
@@ -77,7 +81,7 @@ function renderSetup(id){
   <div class="panel"><div class="eyebrow">Liczba graczy</div><div class="stepper" style="margin:.6rem 0 .3rem"><button type="button" id="minus" aria-label="Mniej graczy">−</button><b id="cnt">${S.count}</b><button type="button" id="plus" aria-label="Więcej graczy">+</button></div>
     <div class="pl-list" id="names">${Array.from({length:S.count},(_,i)=>`<div class="pl-row"><span class="av" style="background-image:url(${avatar(i)})"></span><input type="text" data-player="${i}" maxlength="22" value="${esc(S.names[i]||'Gracz '+(i+1))}" aria-label="Imię gracza ${i+1}" autocomplete="off"></div>`).join('')}</div>
     <div class="field"><label>Tryb rozgrywki</label>${seg('mode',[['COMPETITIVE','Rywalizacja'],['COOPERATIVE','Współpraca'],['MIXED','Mieszany']])}</div>
-    <div class="field"><label>Klimat</label>${seg('intensity',[[1,'Rodzinnie'],[2,'Imprezowo'],[3,'Bez hamulców 18+','adult']])}<div class="hint">Każdą kartę można pominąć bez kary. W trybie 18+ obowiązuje zgoda wszystkich graczy.</div></div>
+    ${netOk?`<div class="field"><label>Jak gracie?</label>${seg('net',[['local','Jedno urządzenie'],['online','TV + telefony']])}<div class="hint">„TV + telefony”: plansza na dużym ekranie, a każdy gracz ma prywatny kontroler na swoim telefonie.</div></div>`:''}<div class="field"><label>Klimat</label>${seg('intensity',[[1,'Rodzinnie'],[2,'Imprezowo'],[3,'Bez hamulców 18+','adult']])}<div class="hint">Każdą kartę można pominąć bez kary. W trybie 18+ obowiązuje zgoda wszystkich graczy.</div></div>
     <label class="setting-line"><input type="checkbox" id="missions" ${S.missions?'checked':''}><span>Tajne misje (prywatne, na kontrolerze gracza)</span></label>
     <div class="actions"><button class="btn primary big" id="start" style="flex:1">Zaczynamy</button></div></div></div></main>`;
   bindCommon();$('#back').onclick=renderWorlds;
@@ -91,7 +95,14 @@ function renderSetup(id){
   $('#start').onclick=()=>{keep();const n=S.count,names=S.names.slice(0,n).map((x,i)=>String(x).trim()||`Gracz ${i+1}`);
     if(new Set(names.map(x=>x.toLowerCase())).size!==n){notify('Każdy gracz musi mieć inną nazwę');return}
     mode=S.mode;
+    if(S.net==='online'&&netOk){createOnline({players:names.map((name,i)=>({name,avatar:i})),worldId,worldName:w.name,mode,settings:{intensityMax:S.intensity,secretMissionsEnabled:S.missions}});netInfo.onError=m=>notify(m);return}
     try{state=createGame({players:names.map((name,i)=>({id:`P${i+1}`,name})),worldId,worldName:w.name,cards,events,missions,seed:Math.floor(Math.random()*1e9)+1,mode,settings:{intensityMax:S.intensity,secretMissionsEnabled:S.missions}});save();renderGame()}catch(e){notify(e.message)}};
+}
+function bindPhaseButtons(){
+  document.querySelectorAll('[data-cmd]').forEach(b=>b.onclick=()=>cmd(b.dataset.cmd));
+  document.querySelectorAll('[data-path]').forEach(b=>b.onclick=()=>cmd('CHOOSE_PATH',{nodeId:b.dataset.path}));
+  document.querySelectorAll('[data-outcome]').forEach(b=>b.onclick=()=>{if(state.phase==='FINALE')cmd('RESOLVE_FINALE',{outcome:b.dataset.outcome});else cmd('RESOLVE_CARD',{outcome:b.dataset.outcome})});
+  document.querySelectorAll('[data-tie]').forEach(b=>b.onclick=()=>cmd('RESOLVE_TIEBREAK',{winnerIds:[b.dataset.tie],method:'wybór prowadzącego'}));
 }
 function renderGame(){
   if(!state)return renderHome();
@@ -119,13 +130,97 @@ function renderGame(){
   $('#pause').onclick=()=>cmd(state.phase==='PAUSED'?'RESUME':'PAUSE');
   $('#quit').onclick=()=>{if(!prefs.confirmQuit||confirm('Wrócić do menu? Bieżący stan pozostanie zapisany.'))renderHome()};
   $('#home')?.addEventListener('click',()=>renderHome());
-  document.querySelectorAll('[data-cmd]').forEach(b=>b.onclick=()=>cmd(b.dataset.cmd));
-  document.querySelectorAll('[data-path]').forEach(b=>b.onclick=()=>cmd('CHOOSE_PATH',{nodeId:b.dataset.path}));
-  document.querySelectorAll('[data-outcome]').forEach(b=>b.onclick=()=>{if(state.phase==='FINALE')cmd('RESOLVE_FINALE',{outcome:b.dataset.outcome});else cmd('RESOLVE_CARD',{outcome:b.dataset.outcome})});
-  document.querySelectorAll('[data-tie]').forEach(b=>b.onclick=()=>cmd('RESOLVE_TIEBREAK',{winnerIds:[b.dataset.tie],method:'wybór prowadzącego'}));
+  bindPhaseButtons();
   if(state.phase==='PAUSED'){$('#phase').innerHTML='<div class="eyebrow">Gra wstrzymana</div><h2>Przerwa w ekspedycji</h2><button class="btn primary" id="resume">Wznów grę</button>';$('#resume').onclick=()=>cmd('RESUME')}
   clearInterval(timerTick);
   if(state.cardTimer?.running){timerTick=setInterval(()=>{const el=$('#timerDisplay');if(el){el.textContent=timerText();if(timerText()==='00:00')el.style.color='var(--red)'}},250)}
+}
+
+/* ===== Tryb sieciowy: TV (host) + telefony ===== */
+const NET_KEY='ie-net-v1';
+const loadNetSaved=()=>{try{return JSON.parse(localStorage.getItem(NET_KEY)||'null')}catch{return null}};
+const saveNetSaved=o=>{try{o?localStorage.setItem(NET_KEY,JSON.stringify(o)):localStorage.removeItem(NET_KEY)}catch{}};
+function leaveNet(){net?.close();net=null;netInfo=null;saveNetSaved(null);releaseWake();state=null}
+async function wake(){try{if('wakeLock'in navigator&&!wakeLock)wakeLock=await navigator.wakeLock.request('screen');wakeLock?.addEventListener?.('release',()=>{wakeLock=null})}catch{}}
+function releaseWake(){try{wakeLock?.release()}catch{}wakeLock=null}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&netInfo?.role==='seat')wake()});
+function startNet(first){
+  netInfo={role:null,code:null,seat:null,token:null,priv:null,seats:[],online:false,pending:first||null};
+  net=connectNet({
+    onStatus:st=>{
+      if(!netInfo)return;netInfo.online=st==='open';
+      if(st==='open'){const saved=loadNetSaved();
+        if(netInfo.pending){net.send(netInfo.pending);netInfo.pending=null}
+        else if(saved?.token)net.send({t:'resume',code:saved.code,token:saved.token});}
+      else if(netInfo.role)setConnBadge();
+    },
+    onMsg:onNetMsg
+  });
+}
+function setConnBadge(){let el=$('#conn');if(!netInfo?.role){el?.remove();return}
+  if(!el){el=document.createElement('div');el.id='conn';el.className='conn-badge';document.body.append(el)}
+  el.textContent=netInfo.online?'':'Łączenie z serwerem…';el.hidden=netInfo.online}
+function onNetMsg(m){
+  if(!netInfo)return;
+  switch(m.t){
+    case 'created':netInfo.role='host';netInfo.code=m.code;netInfo.token=m.hostToken;saveNetSaved({role:'host',code:m.code,token:m.hostToken});break;
+    case 'joined':netInfo.role=m.role;netInfo.code=m.code;if(m.role==='seat'){netInfo.seat=m.seat;netInfo.token=m.token;saveNetSaved({role:'seat',code:m.code,token:m.token,seat:m.seat});wake()}break;
+    case 'resumed':netInfo.role=m.role;netInfo.code=m.code;netInfo.seat=m.seat||null;netInfo.token=loadNetSaved()?.token;if(m.role==='seat')wake();break;
+    case 'seats':netInfo.peek=m;if(netInfo.onSeats)netInfo.onSeats(m);return;
+    case 'state':
+      state=m.state;netInfo.priv=m.private||null;netInfo.seats=m.seats||[];netInfo.hostOnline=m.hostOnline;netInfo.role=m.role;netInfo.seat=m.seat;netInfo.code=m.code;setConnBadge();
+      if(m.role==='seat')renderPhone();else renderGame();return;
+    case 'rejected':notify(m.message||'Ruch odrzucony');return;
+    case 'error':
+      if(/wygasł|nie istnieje|nieważna/i.test(m.message||'')){leaveNet();notify(m.message);renderHome();return}
+      notify(m.message);if(netInfo.onError)netInfo.onError(m.message);return;
+  }
+}
+function joinUrl(){return `${location.origin}${location.pathname.replace(/[^/]*$/,'')}?join=${netInfo?.code||''}`}
+function renderJoin(prefill=''){
+  boardView=null;clearInterval(timerTick);
+  app.innerHTML=`<main class="page"><div class="page-head"><button class="icon-btn" id="back" aria-label="Wróć">${ico('back')}</button><div class="grow"><div class="eyebrow">Telefon gracza</div><h1>Dołącz do gry</h1></div></div>
+  <div class="panel join" id="joinBox"><div class="field"><label for="code">Kod z ekranu TV</label><input id="code" class="code-input" type="text" inputmode="text" autocapitalize="characters" autocomplete="off" spellcheck="false" maxlength="4" value="${esc(prefill)}" placeholder="ABCD"></div><button class="btn primary big" id="go">Dalej</button><p class="muted" id="joinMsg" aria-live="polite"></p></div></main>`;
+  $('#back').onclick=()=>{leaveNet();renderHome()};
+  const go=()=>{const code=$('#code').value.trim().toUpperCase();if(code.length!==4){$('#joinMsg').textContent='Kod ma 4 znaki.';return}
+    if(!net)startNet();netInfo.onError=msg=>{$('#joinMsg').textContent=msg};
+    netInfo.onSeats=m=>showSeats(m);
+    const ask={t:'peek',code};net.opened.then(()=>net.send(ask));$('#joinMsg').textContent='Łączenie…'};
+  $('#go').onclick=go;$('#code').oninput=e=>{e.target.value=e.target.value.toUpperCase()};
+  if(prefill.length===4)go();
+}
+function showSeats(m){
+  $('#joinBox').innerHTML=`<div class="eyebrow">Świat: ${esc(m.world)}</div><h2 style="margin:.2rem 0 .8rem">Kim jesteś?</h2><div class="seat-list">${m.seats.map((x,i)=>`<button class="seat" data-seat="${esc(x.id)}" ${x.taken?'disabled':''}><span class="av" style="background-image:url(${avatar(x.avatar??i)})"></span><span>${esc(x.name)}</span>${x.taken?'<small>zajęte</small>':''}</button>`).join('')}</div><p class="muted" id="joinMsg" aria-live="polite"></p>`;
+  document.querySelectorAll('[data-seat]').forEach(b=>b.onclick=()=>{netInfo.onError=msg=>{$('#joinMsg').textContent=msg};net.send({t:'join',code:m.code,playerId:b.dataset.seat})});
+}
+function renderPhone(){
+  if(!state||!netInfo?.seat)return;
+  const me=state.players.find(p=>p.id===netInfo.seat);if(!me)return;
+  const idx=state.players.indexOf(me),active=state.players[state.activeIndex],mine=active.id===me.id;
+  let root=$('.phone');
+  if(!root){app.innerHTML='<main class="phone"><header class="ph-head" id="phHead"></header><section class="panel phase" id="phPhase"></section><div class="actions" id="phTools"></div><section class="panel" id="phRoster"></section></main>'}
+  const waitPhases=['FINALE','TIEBREAK','PAUSED'];
+  $('#phHead').innerHTML=`<span class="av big" style="background-image:url(${avatar(me.avatar??idx)})"></span><div class="grow"><div class="eyebrow">${esc(state.worldName||'Imprezowa Ekspedycja')} · Runda ${state.round}</div><h1>${esc(me.name)}</h1></div><div class="ph-score"><b>${me.score}</b><small>pkt</small></div>`;
+  let body;
+  if(state.phase==='FINISHED')body=phasePanel().replace(/<button class="btn primary" id="home">[^<]*<\/button>/,'');
+  else if(waitPhases.includes(state.phase))body=`<div class="eyebrow">${state.phase==='PAUSED'?'Gra wstrzymana':'Decyzja na ekranie TV'}</div><h2>Spójrzcie na telewizor</h2><p class="muted">Ten moment rozstrzyga prowadzący na ekranie głównym.</p>`;
+  else if(mine){
+    const real=state;const pc=netInfo.priv?.activePrivateCard;
+    if(pc&&state.activeCard?.privacyLevel==='prywatna')state={...state,activeCard:{...pc}};
+    body=`<div class="eyebrow turn-on">Twoja tura!</div>${phasePanel()}`;state=real;
+  }else body=`<div class="eyebrow">Teraz gra</div><h2>${esc(active.name)}</h2><p class="muted">${state.activeCard&&state.activeCard.privacyLevel!=='prywatna'&&(state.phase==='CARD_ACTIVE')?esc(state.activeCard.title):'Czekaj na swoją kolej — obserwuj telewizor.'}</p>`;
+  $('#phPhase').className='panel phase'+(mine?' mine':'');$('#phPhase').innerHTML=body;
+  $('#phTools').innerHTML=`<button class="btn" id="phPriv">Moja misja i karty${netInfo.priv?.secretMission?' •':''}</button><button class="btn ghost" id="phLeave">Wyjdź</button>`;
+  $('#phRoster').innerHTML=`<div class="eyebrow">Ranking</div><div class="roster">${[...state.players].sort((a,b)=>b.score-a.score).map(p=>`<div class="rs ${p.id===active.id?'active':''}"><span class="av" style="background-image:url(${avatar(state.players.indexOf(p))})"></span><span class="nm">${esc(p.name)}${p.id===me.id?' (Ty)':''}</span><span class="pts">${p.score}<small>pkt</small></span></div>`).join('')}</div>`;
+  $('#phPriv').onclick=()=>renderPrivateController(me.id);
+  $('#phLeave').onclick=()=>{if(confirm('Opuścić grę? Możesz wrócić, wpisując ten sam kod.')){leaveNet();renderHome()}};
+  bindPhaseButtons();
+  clearInterval(timerTick);if(state.cardTimer?.running){timerTick=setInterval(()=>{const el=$('#timerDisplay');if(el)el.textContent=timerText()},250)}
+  if(mine&&navigator.vibrate&&phoneLastTurn!==`${state.turnNumber}`){phoneLastTurn=`${state.turnNumber}`;try{navigator.vibrate([120,60,120])}catch{}}
+}
+let phoneLastTurn='';
+async function createOnline(setup){
+  if(!net)startNet({t:'create',setup});else net.send({t:'create',setup});
 }
 async function loadData(){
   const j=u=>fetch(u).then(r=>{if(!r.ok)throw new Error('Nie udało się wczytać '+u);return r.json()});
