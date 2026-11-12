@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ACH-001",
+    "name": "Pierwszy krok",
+    "condition": "Ukończ pierwszą kartę.",
+    "reward": "1 punkt kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-002",
+    "name": "Odkrywca",
+    "condition": "Aktywuj trzy checkpointy w jednym świecie.",
+    "reward": "2 punkty kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-003",
+    "name": "Mistrz różnorodności",
+    "condition": "Ukończ karty z pięciu kategorii.",
+    "reward": "2 punkty kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-004",
+    "name": "Zgrana ekspedycja",
+    "condition": "Ukończ trzy zadania zespołowe.",
+    "reward": "2 punkty kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-005",
+    "name": "Bezpieczny wybór",
+    "condition": "Ukończ wariant dostępnościowy.",
+    "reward": "1 punkt kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-006",
+    "name": "Kronikarz",
+    "condition": "Przypomnij trzy publiczne wskazówki.",
+    "reward": "2 punkty kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-007",
+    "name": "Wielki finał",
+    "condition": "Ukończ finał dowolnego świata.",
+    "reward": "3 punkty kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-008",
+    "name": "Podróżnik",
+    "condition": "Ukończ trzy różne światy.",
+    "reward": "4 punkty kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-009",
+    "name": "Mistrz światów",
+    "condition": "Ukończ wszystkie 12 światów.",
+    "reward": "10 punktów kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-010",
+    "name": "Powrót legendy",
+    "condition": "Popraw własny wynik w powtórzonej kampanii.",
+    "reward": "2 punkty kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-011",
+    "name": "Drużyna ponad wszystko",
+    "condition": "Wygraj świat kooperacyjnie.",
+    "reward": "2 punkty kroniki",
+    "status": "approved"
+  },
+  {
+    "id": "ACH-012",
+    "name": "Sprytny strateg",
+    "condition": "Zakończ świat z 75% zasobu startowego.",
+    "reward": "3 punkty kroniki",
+    "status": "approved"
+  }
+]

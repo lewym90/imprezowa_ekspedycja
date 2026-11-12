@@ -1,0 +1,101 @@
+{
+  "version": "1.4.0",
+  "events": {
+    "clue": {
+      "status": "implemented_basic",
+      "effect": "increments public clue counter by one",
+      "limitations": "No actual clue text or objective-specific clue payload exists in the content schema."
+    },
+    "memory": {
+      "status": "implemented_basic",
+      "effect": "increments public clue counter by one",
+      "limitations": "Currently shares the same runtime effect as clue; memory-specific reminder and round expiry are not implemented."
+    },
+    "modifier": {
+      "status": "implemented_basic",
+      "effect": "reduces next drawn card intensity cap to at most 1",
+      "limitations": "Does not rewrite the card instruction; only applies the intensity filter."
+    },
+    "route": {
+      "status": "implemented_basic",
+      "effect": "grants one skip token for one eligible ordinary single-exit field",
+      "limitations": "Does not allow skipping checkpoints, events, forks, or finale."
+    },
+    "resource": {
+      "status": "implemented_basic",
+      "effect": "adds one shared resource, capped at teamResourceMax",
+      "limitations": "No event currently decreases shared resource; shield behavior therefore needs a negative-resource event to be fully exercised."
+    }
+  },
+  "specials": {
+    "JOKER": {
+      "status": "implemented",
+      "runtime": "USE_SPECIAL",
+      "effect": "replace unrevealed card; once per player per scenario enforced by specialUseLedger",
+      "limitations": "Requested category must have an eligible card."
+    },
+    "TARCZA": {
+      "status": "implemented_partial",
+      "runtime": "USE_SPECIAL",
+      "effect": "blocks one negative shared-resource delta",
+      "limitations": "Content says event loss only; runtime shield is checked by outcome application too. No current event consumes it."
+    },
+    "KOMPAS": {
+      "status": "implemented_improved",
+      "runtime": "USE_SPECIAL",
+      "effect": "adds clueLog entry pointing to nearest uncollected checkpoint by graph distance",
+      "limitations": "Clue wording is technical; narrative clue payloads not authored."
+    },
+    "ZAMROŻENIE": {
+      "status": "implemented_engine_timer",
+      "runtime": "USE_SPECIAL + TIMER_START/TIMER_PAUSE/TIMER_RESUME/TIMER_STOP",
+      "effect": "adds up to 20 seconds and engine maintains deterministic remaining time when timer commands are received",
+      "limitations": "UI must issue timer control commands; no background ticking process in pure engine."
+    },
+    "WSPÓŁPRACA": {
+      "status": "implemented_partial",
+      "runtime": "USE_SPECIAL",
+      "effect": "sets activeCollaborator and emits assistance event after card resolution",
+      "limitations": "Does not yet apply a dedicated duo card variant or enforce non-duplicated award rules across every outcome."
+    },
+    "PRZERZUT": {
+      "status": "implemented",
+      "runtime": "REROLL",
+      "effect": "consumes PRZERZUT and replaces a pending die result before movement",
+      "limitations": "The card inventory code must use the exact PRZERZUT identifier."
+    },
+    "ZWIADOWCA": {
+      "status": "implemented_improved",
+      "runtime": "USE_SPECIAL",
+      "effect": "reveals adjacent and second-depth node IDs and types",
+      "limitations": "Preview is not yet bound to a chosen route and contains no card content."
+    },
+    "REZERWA": {
+      "status": "implemented",
+      "runtime": "USE_SPECIAL",
+      "effect": "adds one shared resource, capped at maximum",
+      "limitations": "No scenario-specific resource substitution exists."
+    }
+  },
+  "dataAudit": {
+    "eventCount": 60,
+    "specialCount": 8,
+    "eventTypes": [
+      "clue",
+      "memory",
+      "modifier",
+      "resource",
+      "route"
+    ],
+    "specialCodes": [
+      "JOKER",
+      "TARCZA",
+      "KOMPAS",
+      "ZAMROŻENIE",
+      "WSPÓŁPRACA",
+      "PRZERZUT",
+      "ZWIADOWCA",
+      "REZERWA"
+    ]
+  }
+}

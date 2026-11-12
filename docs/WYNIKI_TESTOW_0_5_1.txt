@@ -1,0 +1,20 @@
+IMPREZOWA EKSPEDYCJA — WYNIKI TESTÓW 0.5.1
+
+node --check app.js: PASS
+npm test: 76/76 PASS, 0 FAIL
+npm run validate: valid=true
+
+Zbiory danych:
+- karty: 250
+- światy: 12
+- wydarzenia: 60
+- karty specjalne: 8
+- tajne misje: 25
+- osiągnięcia: 12
+
+Plansze:
+- 12/12 poprawnych
+- każda: 29 węzłów, 31 krawędzi, 29 osiągalnych węzłów
+
+Zakres testów: silnik gry, scenariusze, mechaniki, prywatność stanu, PWA smoke tests, statyczny kontrakt kontrolera UI.
+Ograniczenie: brak testów manualnych na fizycznych urządzeniach i brak backendu multiplayer.

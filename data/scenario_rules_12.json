@@ -1,0 +1,422 @@
+[
+  {
+    "id": "W01",
+    "name": "Wyspa Rozbitków",
+    "sourceFinale": "Przygotujcie plan ucieczki, używając minimum dwóch zdobytych zasobów.",
+    "sourceWinCondition": "Ucieczka: trzy checkpointy i co najmniej 1 energia.",
+    "sourceFailureCondition": " energia spada do zera.",
+    "objectives": [
+      {
+        "id": "naprawa_lodzi",
+        "label": "Naprawa łodzi",
+        "required": 2,
+        "eligibleCategories": [
+          "RUCH_I_KOORDYNACJA",
+          "TWORZENIE_I_OPOWIEŚĆ"
+        ]
+      },
+      {
+        "id": "sygnal_ratunkowy",
+        "label": "Sygnal ratunkowy",
+        "required": 1,
+        "eligibleCategories": [
+          "ZGADYWANIE_I_OPIS",
+          "IMPROWIZACJA"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 3,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Energia",
+    "failureOnResourceDepletion": true
+  },
+  {
+    "id": "W02",
+    "name": "Zamek Tajemnic",
+    "sourceFinale": "Wskażcie wersję wydarzeń zgodną z trzema zebranymi faktami.",
+    "sourceWinCondition": "Zwycięstwo: poprawna wersja i dwa fakty.",
+    "sourceFailureCondition": " wyczerpanie prób.",
+    "objectives": [
+      {
+        "id": "dowod",
+        "label": "Dowód",
+        "required": 2,
+        "eligibleCategories": [
+          "QUIZ_I_WIEDZA",
+          "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ"
+        ]
+      },
+      {
+        "id": "dedukcja",
+        "label": "Dedukcja",
+        "required": 1,
+        "eligibleCategories": [
+          "DECYZJE_I_LOGIKA",
+          "NEGOCJACJE_I_BLEF"
+        ]
+      }
+    ],
+    "minimumResource": 2,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Zasób wspólny",
+    "failureOnResourceDepletion": false
+  },
+  {
+    "id": "W03",
+    "name": "Miejska Intryga",
+    "sourceFinale": "Przygotuj kampanię promującą miasto z trzema atrakcjami.",
+    "sourceWinCondition": "Zwycięstwo: trzy atrakcje i nieujemny budżet.",
+    "sourceFailureCondition": " wyczerpanie budżetu.",
+    "objectives": [
+      {
+        "id": "atrakcja",
+        "label": "Atrakcja",
+        "required": 3,
+        "eligibleCategories": [
+          "IMPROWIZACJA",
+          "TWORZENIE_I_OPOWIEŚĆ"
+        ]
+      },
+      {
+        "id": "budzet",
+        "label": "Budżet",
+        "required": 1,
+        "eligibleCategories": [
+          "DECYZJE_I_LOGIKA",
+          "NEGOCJACJE_I_BLEF"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Budżet",
+    "failureOnResourceDepletion": true
+  },
+  {
+    "id": "W04",
+    "name": "Kosmiczna Misja",
+    "sourceFinale": "Przydzielcie energię i uruchomcie kapsułę ratunkową.",
+    "sourceWinCondition": "Zwycięstwo: trzy systemy naprawione i energia dodatnia.",
+    "sourceFailureCondition": " brak energii.",
+    "objectives": [
+      {
+        "id": "naprawiony_system",
+        "label": "Naprawiony system",
+        "required": 3,
+        "eligibleCategories": [
+          "DECYZJE_I_LOGIKA",
+          "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ"
+        ]
+      },
+      {
+        "id": "energia",
+        "label": "Energia",
+        "required": 1,
+        "eligibleCategories": [
+          "RUCH_I_KOORDYNACJA",
+          "TWORZENIE_I_OPOWIEŚĆ"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Energia",
+    "failureOnResourceDepletion": true
+  },
+  {
+    "id": "W05",
+    "name": "Dziki Zachód",
+    "sourceFinale": "Stwórz legendę miasteczka i rozstrzygnij spór o skarb.",
+    "sourceWinCondition": "Zwycięstwo: reputacja 3 i rozwiązany spór.",
+    "sourceFailureCondition": " reputacja 0.",
+    "objectives": [
+      {
+        "id": "sojusz",
+        "label": "Sojusz",
+        "required": 2,
+        "eligibleCategories": [
+          "NEGOCJACJE_I_BLEF",
+          "IMPROWIZACJA"
+        ]
+      },
+      {
+        "id": "mapa",
+        "label": "Mapa",
+        "required": 1,
+        "eligibleCategories": [
+          "DECYZJE_I_LOGIKA",
+          "ZGADYWANIE_I_OPIS"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Zasób wspólny",
+    "failureOnResourceDepletion": false
+  },
+  {
+    "id": "W06",
+    "name": "Laboratorium Absurdu",
+    "sourceFinale": "Zaprezentuj wynalazek i obroń jego użyteczność trzema zastosowaniami.",
+    "sourceWinCondition": "Zwycięstwo: nazwa, działanie, ograniczenie i trzy zastosowania.",
+    "sourceFailureCondition": " brak rozwiązania po dwóch próbach.",
+    "objectives": [
+      {
+        "id": "eksperyment",
+        "label": "Eksperyment",
+        "required": 2,
+        "eligibleCategories": [
+          "TWORZENIE_I_OPOWIEŚĆ",
+          "IMPROWIZACJA"
+        ]
+      },
+      {
+        "id": "proba",
+        "label": "Próba",
+        "required": 1,
+        "eligibleCategories": [
+          "QUIZ_I_WIEDZA",
+          "DECYZJE_I_LOGIKA"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": 2,
+    "resourceLabel": "Zasób wspólny",
+    "failureOnResourceDepletion": false
+  },
+  {
+    "id": "W07",
+    "name": "Hotel na Końcu Świata",
+    "sourceFinale": "Rozwiąż trzy reklamacje podczas odprawy personelu.",
+    "sourceWinCondition": "Zwycięstwo: trzy reklamacje rozwiązane.",
+    "sourceFailureCondition": " dwie pozostają nierozwiązane.",
+    "objectives": [
+      {
+        "id": "wskazowka",
+        "label": "Wskazówka",
+        "required": 2,
+        "eligibleCategories": [
+          "IMPROWIZACJA",
+          "ZGADYWANIE_I_OPIS"
+        ]
+      },
+      {
+        "id": "sekret",
+        "label": "Sekret",
+        "required": 1,
+        "eligibleCategories": [
+          "NEGOCJACJE_I_BLEF",
+          "DECYZJE_I_LOGIKA"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Zasób wspólny",
+    "failureOnResourceDepletion": false
+  },
+  {
+    "id": "W08",
+    "name": "Muzeum Niemożliwych Rzeczy",
+    "sourceFinale": "Wybierz eksponat i obroń jego historię trzema wskazówkami.",
+    "sourceWinCondition": "Zwycięstwo: historia zgodna z faktami.",
+    "sourceFailureCondition": " sprzeczność z dwiema wskazówkami.",
+    "objectives": [
+      {
+        "id": "eksponat",
+        "label": "Eksponat",
+        "required": 3,
+        "eligibleCategories": [
+          "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+          "ZGADYWANIE_I_OPIS"
+        ]
+      },
+      {
+        "id": "odkrycie",
+        "label": "Odkrycie",
+        "required": 1,
+        "eligibleCategories": [
+          "QUIZ_I_WIEDZA",
+          "DECYZJE_I_LOGIKA"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Zasób wspólny",
+    "failureOnResourceDepletion": false
+  },
+  {
+    "id": "W09",
+    "name": "Festiwal Chaosu",
+    "sourceFinale": "Zrealizuj wielki pokaz z trzech konkurencji.",
+    "sourceWinCondition": "Zwycięstwo: trzy konkurencje i wynik jury; brak eliminacji.",
+    "sourceFailureCondition": "Brak porażki; rozgrywka kończy się finałem.",
+    "objectives": [
+      {
+        "id": "wystep",
+        "label": "Występ",
+        "required": 2,
+        "eligibleCategories": [
+          "RUCH_I_KOORDYNACJA",
+          "IMPROWIZACJA"
+        ]
+      },
+      {
+        "id": "publicznosc",
+        "label": "Publiczność",
+        "required": 1,
+        "eligibleCategories": [
+          "TWORZENIE_I_OPOWIEŚĆ",
+          "NEGOCJACJE_I_BLEF"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Zasób wspólny",
+    "failureOnResourceDepletion": false
+  },
+  {
+    "id": "W10",
+    "name": "Nocny Pociąg",
+    "sourceFinale": "Odtwórz kolejność zdarzeń i rozwiąż zagadkę podróży.",
+    "sourceWinCondition": "Zwycięstwo: trzy zdarzenia w kolejności i poprawna odpowiedź.",
+    "sourceFailureCondition": " wyczerpanie prób.",
+    "objectives": [
+      {
+        "id": "trop",
+        "label": "Trop",
+        "required": 2,
+        "eligibleCategories": [
+          "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+          "QUIZ_I_WIEDZA"
+        ]
+      },
+      {
+        "id": "bilet",
+        "label": "Bilet",
+        "required": 1,
+        "eligibleCategories": [
+          "DECYZJE_I_LOGIKA",
+          "ZGADYWANIE_I_OPIS"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Zasób wspólny",
+    "failureOnResourceDepletion": false
+  },
+  {
+    "id": "W11",
+    "name": "Królestwo Luster",
+    "sourceFinale": "Odtwórz zasady świata i rozwiąż paradoks na podstawie wskazówek.",
+    "sourceWinCondition": "Zwycięstwo: trzy odwrócone reguły rozpoznane.",
+    "sourceFailureCondition": " dwie błędne odpowiedzi końcowe.",
+    "objectives": [
+      {
+        "id": "odbicie",
+        "label": "Odbicie",
+        "required": 2,
+        "eligibleCategories": [
+          "DECYZJE_I_LOGIKA",
+          "ZGADYWANIE_I_OPIS"
+        ]
+      },
+      {
+        "id": "klucz",
+        "label": "Klucz",
+        "required": 1,
+        "eligibleCategories": [
+          "IMPROWIZACJA",
+          "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": 2,
+    "resourceLabel": "Zasób wspólny",
+    "failureOnResourceDepletion": false
+  },
+  {
+    "id": "W12",
+    "name": "Archipelag Snów",
+    "sourceFinale": "Stwórz finałową opowieść zawierającą elementy zdobyte w regionach.",
+    "sourceWinCondition": "Zwycięstwo: trzy motywy i zamknięcie narracyjne; brak eliminacji.",
+    "sourceFailureCondition": "Brak porażki; rozgrywka kończy się finałem.",
+    "objectives": [
+      {
+        "id": "wyspa",
+        "label": "Wyspa",
+        "required": 3,
+        "eligibleCategories": [
+          "TWORZENIE_I_OPOWIEŚĆ",
+          "IMPROWIZACJA"
+        ]
+      },
+      {
+        "id": "mapa",
+        "label": "Mapa",
+        "required": 1,
+        "eligibleCategories": [
+          "ZGADYWANIE_I_OPIS",
+          "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ"
+        ]
+      }
+    ],
+    "minimumResource": 1,
+    "maxRounds": 25,
+    "mechanicalMappingStatus": "IMPLEMENTED_CATEGORY_PROXY_HOST_CONFIRMED_OUTCOME",
+    "requiredCheckpoints": 0,
+    "maxFailures": null,
+    "finaleFailureLimit": null,
+    "resourceLabel": "Zasób wspólny",
+    "failureOnResourceDepletion": false
+  }
+]

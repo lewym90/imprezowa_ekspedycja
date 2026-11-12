@@ -1,0 +1,74 @@
+[
+  {
+    "id": "SP-01",
+    "code": "JOKER",
+    "title": "Zmiana kategorii",
+    "instructions": "Przed ujawnieniem treści zmień kategorię na inną aktywną, zgodną z filtrami.",
+    "limit": "Raz na scenariusz",
+    "timing": "Wyłącznie w oknie użycia wskazanym przez silnik.",
+    "status": "approved"
+  },
+  {
+    "id": "SP-02",
+    "code": "TARCZA",
+    "title": "Ochrona zasobu",
+    "instructions": "Anuluj jedną utratę wspólnego zasobu z wydarzenia; nie chroni przed warunkiem porażki finału.",
+    "limit": "Jednorazowo",
+    "timing": "Wyłącznie w oknie użycia wskazanym przez silnik.",
+    "status": "approved"
+  },
+  {
+    "id": "SP-03",
+    "code": "KOMPAS",
+    "title": "Wskazówka",
+    "instructions": "Odkryj dodatkową wskazówkę do najbliższego checkpointu.",
+    "limit": "Jednorazowo",
+    "timing": "Wyłącznie w oknie użycia wskazanym przez silnik.",
+    "status": "approved"
+  },
+  {
+    "id": "SP-04",
+    "code": "ZAMROŻENIE",
+    "title": "Pauza taktyczna",
+    "instructions": "Zatrzymaj licznik jednej karty na maksymalnie 20 sekund.",
+    "limit": "Jednorazowo",
+    "timing": "Wyłącznie w oknie użycia wskazanym przez silnik.",
+    "status": "approved"
+  },
+  {
+    "id": "SP-05",
+    "code": "WSPÓŁPRACA",
+    "title": "Wspólny sukces",
+    "instructions": "Wybierz gracza do wykonania zadania w duecie; nagroda nie podwaja punktów.",
+    "limit": "Jednorazowo",
+    "timing": "Wyłącznie w oknie użycia wskazanym przez silnik.",
+    "status": "approved"
+  },
+  {
+    "id": "SP-06",
+    "code": "PRZERZUT",
+    "title": "Druga szansa",
+    "instructions": "Powtórz rzut przed ruchem; drugi wynik jest wiążący.",
+    "limit": "Jednorazowo",
+    "timing": "Wyłącznie w oknie użycia wskazanym przez silnik.",
+    "status": "approved"
+  },
+  {
+    "id": "SP-07",
+    "code": "ZWIADOWCA",
+    "title": "Podgląd drogi",
+    "instructions": "Ujawnij typy dwóch kolejnych pól bez treści kart.",
+    "limit": "Jednorazowo",
+    "timing": "Wyłącznie w oknie użycia wskazanym przez silnik.",
+    "status": "approved"
+  },
+  {
+    "id": "SP-08",
+    "code": "REZERWA",
+    "title": "Zapas ekspedycji",
+    "instructions": "Dodaj jeden zasób, jeśli scenariusz go wykorzystuje.",
+    "limit": "Jednorazowo",
+    "timing": "Wyłącznie w oknie użycia wskazanym przez silnik.",
+    "status": "approved"
+  }
+]

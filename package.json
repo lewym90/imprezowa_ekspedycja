@@ -1,0 +1,16 @@
+{
+  "name": "imprezowa-ekspedycja-pwa",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node server.js",
+    "build": "node tools/build-data.mjs && node tools/build-sw.mjs",
+    "test": "node tools/build-data.mjs && node tools/build-sw.mjs && node --test \"tests/*.test.js\"",
+    "validate": "node src/validate-content.js",
+    "e2e": "node tools/e2e.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

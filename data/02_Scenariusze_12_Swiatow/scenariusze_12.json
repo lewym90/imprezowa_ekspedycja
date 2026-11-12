@@ -1,0 +1,621 @@
+[
+  {
+    "id": "W01",
+    "name": "Wyspa Rozbitków",
+    "theme": "Rozbitkowie próbują opuścić wyspę.",
+    "regions": [
+      "Plaża",
+      "Dżungla",
+      "Wodospad",
+      "Wulkan",
+      "Latarnia"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Wspólna energia, naprawa łodzi, wybory ryzyka i poszukiwanie sygnału.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W01-01",
+      "EV-W01-02",
+      "EV-W01-03",
+      "EV-W01-04",
+      "EV-W01-05"
+    ],
+    "finale": "Przygotujcie plan ucieczki, używając minimum dwóch zdobytych zasobów.",
+    "winCondition": "Ucieczka: trzy checkpointy i co najmniej 1 energia.",
+    "failureCondition": " energia spada do zera.",
+    "twoPlayerVariant": "Dwie osoby dzielą role nawigatora i konstruktora, zmieniając je po checkpointcie.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W02",
+    "name": "Zamek Tajemnic",
+    "theme": "Podejrzani świadkowie i sprzeczne relacje.",
+    "regions": [
+      "Dziedziniec",
+      "Biblioteka",
+      "Sala Luster",
+      "Lochy",
+      "Wieża"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Tajne role opcjonalne, publiczne wskazówki, dedukcja i sprzeczności.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W02-01",
+      "EV-W02-02",
+      "EV-W02-03",
+      "EV-W02-04",
+      "EV-W02-05"
+    ],
+    "finale": "Wskażcie wersję wydarzeń zgodną z trzema zebranymi faktami.",
+    "winCondition": "Zwycięstwo: poprawna wersja i dwa fakty.",
+    "failureCondition": " wyczerpanie prób.",
+    "twoPlayerVariant": "Jedna osoba pyta, druga porządkuje dowody; zamiana ról w połowie.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W03",
+    "name": "Miejska Intryga",
+    "theme": "Fikcyjne miasto, interesy i absurdalne wynalazki.",
+    "regions": [
+      "Rynek",
+      "Teatr",
+      "Ratusz",
+      "Zaułek",
+      "Dworzec"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Negocjacje, układy, wymiana kart, reputacja i wspólny budżet.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W03-01",
+      "EV-W03-02",
+      "EV-W03-03",
+      "EV-W03-04",
+      "EV-W03-05"
+    ],
+    "finale": "Przygotuj kampanię promującą miasto z trzema atrakcjami.",
+    "winCondition": "Zwycięstwo: trzy atrakcje i nieujemny budżet.",
+    "failureCondition": " wyczerpanie budżetu.",
+    "twoPlayerVariant": "Każdy gracz odpowiada za część kampanii; wspólnie ustalają budżet.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W04",
+    "name": "Kosmiczna Misja",
+    "theme": "Załoga statku po awarii.",
+    "regions": [
+      "Mostek",
+      "Laboratorium",
+      "Śluza",
+      "Maszynownia",
+      "Kapsuła"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Ograniczona komunikacja w wybranych rundach, pamięć, awarie i wspólne zasoby.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W04-01",
+      "EV-W04-02",
+      "EV-W04-03",
+      "EV-W04-04",
+      "EV-W04-05"
+    ],
+    "finale": "Przydzielcie energię i uruchomcie kapsułę ratunkową.",
+    "winCondition": "Zwycięstwo: trzy systemy naprawione i energia dodatnia.",
+    "failureCondition": " brak energii.",
+    "twoPlayerVariant": "Role nawigacji i napraw zmieniają się; ograniczenia komunikacji są łagodniejsze.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W05",
+    "name": "Dziki Zachód",
+    "theme": "Miasteczko, saloon i pojedynki słowne.",
+    "regions": [
+      "Stacja",
+      "Saloon",
+      "Rynek",
+      "Kopalnia",
+      "Pustynia"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Pojedynki słowne, blef i reputacja; bez fizycznych pojedynków i zakładów.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W05-01",
+      "EV-W05-02",
+      "EV-W05-03",
+      "EV-W05-04",
+      "EV-W05-05"
+    ],
+    "finale": "Stwórz legendę miasteczka i rozstrzygnij spór o skarb.",
+    "winCondition": "Zwycięstwo: reputacja 3 i rozwiązany spór.",
+    "failureCondition": " reputacja 0.",
+    "twoPlayerVariant": "Naprzemienny pojedynek na argumenty, bez eliminacji.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W06",
+    "name": "Laboratorium Absurdu",
+    "theme": "Eksperymenty i dziwne wynalazki.",
+    "regions": [
+      "Sala Prototypów",
+      "Archiwum",
+      "Komora Testów",
+      "Warsztat"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Ograniczenia językowe, kreatywne prototypy i mierzalne testy.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W06-01",
+      "EV-W06-02",
+      "EV-W06-03",
+      "EV-W06-04",
+      "EV-W06-05"
+    ],
+    "finale": "Zaprezentuj wynalazek i obroń jego użyteczność trzema zastosowaniami.",
+    "winCondition": "Zwycięstwo: nazwa, działanie, ograniczenie i trzy zastosowania.",
+    "failureCondition": " brak rozwiązania po dwóch próbach.",
+    "twoPlayerVariant": "Każdy tworzy jeden element wynalazku; wspólna prezentacja.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W07",
+    "name": "Hotel na Końcu Świata",
+    "theme": "Goście, reklamacje i absurdalna obsługa.",
+    "regions": [
+      "Recepcja",
+      "Restauracja",
+      "Spa",
+      "Korytarz",
+      "Penthouse"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Improwizowane sceny obsługi; dobrowolne role; ocena rozwiązania problemu.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W07-01",
+      "EV-W07-02",
+      "EV-W07-03",
+      "EV-W07-04",
+      "EV-W07-05"
+    ],
+    "finale": "Rozwiąż trzy reklamacje podczas odprawy personelu.",
+    "winCondition": "Zwycięstwo: trzy reklamacje rozwiązane.",
+    "failureCondition": " dwie pozostają nierozwiązane.",
+    "twoPlayerVariant": "Role klienta i obsługi zamieniają się przy każdej reklamacji.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W08",
+    "name": "Muzeum Niemożliwych Rzeczy",
+    "theme": "Fikcyjne eksponaty i ich historie.",
+    "regions": [
+      "Sala Wynalazków",
+      "Galeria",
+      "Magazyn",
+      "Archiwum"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Skojarzenia, opisy bez zakazanych słów, pamięć i kuratorska selekcja.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W08-01",
+      "EV-W08-02",
+      "EV-W08-03",
+      "EV-W08-04",
+      "EV-W08-05"
+    ],
+    "finale": "Wybierz eksponat i obroń jego historię trzema wskazówkami.",
+    "winCondition": "Zwycięstwo: historia zgodna z faktami.",
+    "failureCondition": " sprzeczność z dwiema wskazówkami.",
+    "twoPlayerVariant": "Gracze naprzemiennie tworzą opis i weryfikują wskazówki.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W09",
+    "name": "Festiwal Chaosu",
+    "theme": "Konkursy, krótkie występy i jury.",
+    "regions": [
+      "Scena",
+      "Backstage",
+      "Arena",
+      "Strefa Jury"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Krótkie konkurencje, rotacja kategorii i jawne głosowanie; spokojny wariant równoważny.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W09-01",
+      "EV-W09-02",
+      "EV-W09-03",
+      "EV-W09-04",
+      "EV-W09-05"
+    ],
+    "finale": "Zrealizuj wielki pokaz z trzech konkurencji.",
+    "winCondition": "Zwycięstwo: trzy konkurencje i wynik jury; brak eliminacji.",
+    "failureCondition": "Brak porażki; rozgrywka kończy się finałem.",
+    "twoPlayerVariant": "Każdy wybiera występ lub alternatywę; przy dwóch osobach jury ocenia naprzemiennie.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W10",
+    "name": "Nocny Pociąg",
+    "theme": "Podróż przez wagony, w każdym inna reguła.",
+    "regions": [
+      "Wagon Restauracyjny",
+      "Wagon Sypialny",
+      "Przedział",
+      "Lokomotywa"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Pamięć, zdarzenia i zmienne ograniczenia; jawny dziennik.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W10-01",
+      "EV-W10-02",
+      "EV-W10-03",
+      "EV-W10-04",
+      "EV-W10-05"
+    ],
+    "finale": "Odtwórz kolejność zdarzeń i rozwiąż zagadkę podróży.",
+    "winCondition": "Zwycięstwo: trzy zdarzenia w kolejności i poprawna odpowiedź.",
+    "failureCondition": " wyczerpanie prób.",
+    "twoPlayerVariant": "Role świadka i kronikarza zmieniają się naprzemiennie.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W11",
+    "name": "Królestwo Luster",
+    "theme": "Odwrócone role i zmieniona perspektywa.",
+    "regions": [
+      "Sala Odbić",
+      "Ogród Luster",
+      "Galeria",
+      "Komnata Dwóch Tronów"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Zamiana ról, przeciwieństwa i interpretacja; odwrócenie nie dotyczy bezpieczeństwa.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W11-01",
+      "EV-W11-02",
+      "EV-W11-03",
+      "EV-W11-04",
+      "EV-W11-05"
+    ],
+    "finale": "Odtwórz zasady świata i rozwiąż paradoks na podstawie wskazówek.",
+    "winCondition": "Zwycięstwo: trzy odwrócone reguły rozpoznane.",
+    "failureCondition": " dwie błędne odpowiedzi końcowe.",
+    "twoPlayerVariant": "Role wykonawcy i obserwatora zmieniają się po każdej karcie.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  },
+  {
+    "id": "W12",
+    "name": "Archipelag Snów",
+    "theme": "Wspólne tworzenie surrealistycznej opowieści.",
+    "regions": [
+      "Wyspa Szeptów",
+      "Morze Chmur",
+      "Las Zegarów",
+      "Plaża Wspomnień",
+      "Brama Świtu"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "estimatedMinutes": 45,
+    "startCondition": "Pokój utworzony, 2–10 graczy gotowych, filtry treści potwierdzone.",
+    "specialMechanics": "Skojarzenia, narracja i kolekcja motywów zapisywana w kronice.",
+    "tileTypes": [
+      "START",
+      "WYZWANIE",
+      "WYDARZENIE",
+      "SKARB",
+      "CHECKPOINT",
+      "ROZWIDLENIE",
+      "FINAŁ"
+    ],
+    "cardCategories": [
+      "IMPROWIZACJA",
+      "ZGADYWANIE_I_OPIS",
+      "PAMIĘĆ_I_SPOSTRZEGAWCZOŚĆ",
+      "RUCH_I_KOORDYNACJA",
+      "QUIZ_I_WIEDZA",
+      "NEGOCJACJE_I_BLEF",
+      "TWORZENIE_I_OPOWIEŚĆ",
+      "DECYZJE_I_LOGIKA",
+      "TAJNE MISJE",
+      "FINAŁOWE"
+    ],
+    "eventDeckIds": [
+      "EV-W12-01",
+      "EV-W12-02",
+      "EV-W12-03",
+      "EV-W12-04",
+      "EV-W12-05"
+    ],
+    "finale": "Stwórz finałową opowieść zawierającą elementy zdobyte w regionach.",
+    "winCondition": "Zwycięstwo: trzy motywy i zamknięcie narracyjne; brak eliminacji.",
+    "failureCondition": "Brak porażki; rozgrywka kończy się finałem.",
+    "twoPlayerVariant": "Dwie osoby budują historię naprzemiennie, mogą korzystać z puli słów.",
+    "cooperativeVariant": "Wspólny zasób i wspólny wynik; nikt nie odpada. Punkty indywidualne są statystyką, nie warunkiem porażki.",
+    "visualSkin": "Ilustracja z Etapu 2 jest wyłącznie skórką wizualną; nazwa i mechanika pozostają zgodne z Etapem 1.",
+    "status": "approved"
+  }
+]

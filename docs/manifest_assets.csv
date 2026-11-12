@@ -1,0 +1,47 @@
+priority,title,target_file,format,grid_cols_x_rows,cut_names
+P1,Tło świata W01 — Wyspa Rozbitków,assets/boards/W01-wyspa-rozbitkow.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W02 — Zamek Tajemnic,assets/boards/W02-zamek-tajemnic.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W03 — Miejska Intryga,assets/boards/W03-miejska-intryga.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W04 — Kosmiczna Misja,assets/boards/W04-kosmiczna-misja.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W05 — Dziki Zachód,assets/boards/W05-dziki-zachod.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W06 — Laboratorium Absurdu,assets/boards/W06-laboratorium-absurdu.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W07 — Hotel na Końcu Świata,assets/boards/W07-hotel-na-koncu-swiata.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W08 — Muzeum Niemożliwych Rzeczy,assets/boards/W08-muzeum-niemozliwych-rzeczy.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W09 — Festiwal Chaosu,assets/boards/W09-festiwal-chaosu.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W10 — Nocny Pociąg,assets/boards/W10-nocny-pociag.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W11 — Królestwo Luster,assets/boards/W11-krolestwo-luster.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Tło świata W12 — Archipelag Snów,assets/boards/W12-archipelag-snow.png,"16:9, najwyższa możliwa rozdzielczość (cel 3840×2160)",1,
+P1,Arkusz pól planszy (15 typów),assets/sheets/tiles-15.png,1:1 lub 3:2 (siatka 5×3),5x3,assets/tiles/start.webp;assets/tiles/meta.webp;assets/tiles/checkpoint.webp;assets/tiles/fork.webp;assets/tiles/challenge.webp;assets/tiles/duel.webp;assets/tiles/team.webp;assets/tiles/bluff.webp;assets/tiles/improv.webp;assets/tiles/reflex.webp;assets/tiles/event.webp;assets/tiles/treasure.webp;assets/tiles/risk.webp;assets/tiles/rest.webp;assets/tiles/secret.webp
+P1,Puste pole (baza do wszystkich pól),assets/tiles/blank.png,1:1,1,
+P1,Arkusz pionków (10 figurek),assets/sheets/pawns-10.png,3:2 (siatka 5×2),5x2,assets/pawns/pawn-01.webp;assets/pawns/pawn-02.webp;assets/pawns/pawn-03.webp;assets/pawns/pawn-04.webp;assets/pawns/pawn-05.webp;assets/pawns/pawn-06.webp;assets/pawns/pawn-07.webp;assets/pawns/pawn-08.webp;assets/pawns/pawn-09.webp;assets/pawns/pawn-10.webp
+P1,Konferansjer — 8 min (arkusz),assets/sheets/host-expressions.png,3:2 (siatka 4×2),4x2,assets/host/host-proud.webp;assets/host/host-shocked.webp;assets/host/host-sad.webp;assets/host/host-evil.webp;assets/host/host-laugh.webp;assets/host/host-disapprove.webp;assets/host/host-cheer.webp;assets/host/host-faint.webp
+P1,Konferansjer — postać w całości,assets/host/host-full.png,2:3 pion,1,
+P1,Arkusz awersów kart (12 kategorii),assets/sheets/card-faces-12.png,1:1 (siatka 4×3),4x3,assets/cards/face-improv.webp;assets/cards/face-guess.webp;assets/cards/face-memory.webp;assets/cards/face-move.webp;assets/cards/face-quiz.webp;assets/cards/face-bluff.webp;assets/cards/face-story.webp;assets/cards/face-logic.webp;assets/cards/face-secret.webp;assets/cards/face-finale.webp;assets/cards/face-tribunal.webp;assets/cards/face-chaos.webp
+P1,Rewersy kart (4 sztuki),assets/sheets/card-backs-4.png,1:1 (siatka 2×2),2x2,assets/cards/back-standard.webp;assets/cards/back-event.webp;assets/cards/back-secret.webp;assets/cards/back-adult.webp
+P1,Przyciski (12 stanów),assets/sheets/ui-buttons.png,3:2 lub 4:3 (siatka 3×4),3x4,assets/ui/btn-primary.webp;assets/ui/btn-primary-down.webp;assets/ui/btn-secondary.webp;assets/ui/btn-secondary-down.webp;assets/ui/btn-danger.webp;assets/ui/btn-danger-down.webp;assets/ui/btn-success.webp;assets/ui/btn-disabled.webp;assets/ui/btn-round.webp;assets/ui/btn-round-down.webp;assets/ui/btn-pill.webp;assets/ui/btn-toggle.webp
+P1,Ramki i panele (6 sztuk),assets/sheets/ui-frames.png,3:2 (siatka 3×2),3x2,assets/ui/frame-main.webp;assets/ui/frame-stat.webp;assets/ui/frame-card.webp;assets/ui/frame-header.webp;assets/ui/frame-bubble.webp;assets/ui/frame-modal.webp
+P2,Tekstury (6 materiałów),assets/sheets/textures-6.png,3:2 (siatka 3×2),3x2,assets/tex/obsidian.webp;assets/tex/leather.webp;assets/tex/parchment.webp;assets/tex/gold.webp;assets/tex/stone.webp;assets/tex/velvet.webp
+P2,Emblematy kategorii (12),assets/sheets/icons-categories.png,4:3 (siatka 4×3),4x3,assets/icons/cat-improv.webp;assets/icons/cat-guess.webp;assets/icons/cat-memory.webp;assets/icons/cat-move.webp;assets/icons/cat-quiz.webp;assets/icons/cat-bluff.webp;assets/icons/cat-story.webp;assets/icons/cat-logic.webp;assets/icons/cat-secret.webp;assets/icons/cat-finale.webp;assets/icons/cat-tribunal.webp;assets/icons/cat-chaos.webp
+P2,Ikony zasobów (8),assets/sheets/icons-resources.png,2:1 lub 3:2 (siatka 4×2),4x2,assets/icons/res-points.webp;assets/icons/res-energy.webp;assets/icons/res-coin.webp;assets/icons/res-key.webp;assets/icons/res-heart.webp;assets/icons/res-dice.webp;assets/icons/res-time.webp;assets/icons/res-skip.webp
+P2,Odznaki osiągnięć (12),assets/sheets/badges-12.png,4:3 (siatka 4×3),4x3,assets/badges/badge-01.webp;assets/badges/badge-02.webp;assets/badges/badge-03.webp;assets/badges/badge-04.webp;assets/badges/badge-05.webp;assets/badges/badge-06.webp;assets/badges/badge-07.webp;assets/badges/badge-08.webp;assets/badges/badge-09.webp;assets/badges/badge-10.webp;assets/badges/badge-11.webp;assets/badges/badge-12.webp
+P2,Reakcje graczy (8),assets/sheets/reactions-8.png,2:1 lub 3:2 (siatka 4×2),4x2,assets/reactions/laugh.webp;assets/reactions/shock.webp;assets/reactions/fire.webp;assets/reactions/clap.webp;assets/reactions/heart.webp;assets/reactions/skull.webp;assets/reactions/facepalm.webp;assets/reactions/crown.webp
+P2,Pieczęć trybu 18+,assets/ui/seal-18.png,1:1,1,
+P1,Emblemat gry (bez napisu),assets/brand/emblem.png,1:1,1,
+P1,Ikona aplikacji (wariant nowy),assets/brand/app-icon.png,1:1,1,
+P1,Ekran tytułowy — poziomy (TV/komputer),assets/brand/keyart-16x9.png,"16:9, najwyższa możliwa rozdzielczość",1,
+P1,Ekran tytułowy — pionowy (telefon),assets/brand/keyart-9x16.png,9:16,1,
+P2,Scena lobby (panoramiczna),assets/brand/lobby-stage.png,3:1 lub 21:9,1,
+P3,Cząsteczki i konfetti (8),assets/sheets/particles-8.png,2:1 lub 3:2 (siatka 4×2),4x2,assets/fx/coins.webp;assets/fx/confetti-gold.webp;assets/fx/confetti-color.webp;assets/fx/sparkle.webp;assets/fx/smoke.webp;assets/fx/crown-glow.webp;assets/fx/hearts.webp;assets/fx/fireworks.webp
+P3,Intro — złoty kompas z koroną,assets/anim/intro.mp4,"6–8 s, 16:9",1,
+P3,Rzut kostką (tło efektu),assets/anim/dice-burst.mp4,"3 s, 16:9",1,
+P3,Odsłonięcie karty,assets/anim/card-reveal.mp4,"3 s, 16:9",1,
+P3,Finał i fajerwerki,assets/anim/finale.mp4,"8 s, 16:9, zapętlalne",1,
+P2,Lobby — pompatyczna uwertura,assets/audio/music-lobby.mp3,"90–120 s, loop",1,
+P2,Plansza — przygoda z uśmiechem,assets/audio/music-board.mp3,"2–3 min, loop",1,
+P2,Napięcie — czas karty,assets/audio/music-tension.mp3,"60–90 s, loop",1,
+P2,Głosowanie — werble i rozstrzygnięcie,assets/audio/music-vote.mp3,30–45 s,1,
+P2,Finał — triumfalny,assets/audio/music-finale.mp3,60–90 s,1,
+P2,Tryb 18+ — uwodzicielski swing,assets/audio/music-adult.mp3,"2–3 min, loop",1,
+P3,Śmiech publiczności,assets/audio/sfx-crowd-laugh.mp3,3–4 s,1,
+P3,Oklaski publiczności,assets/audio/sfx-applause.mp3,4–5 s,1,
+P2,Głos konferansjera — opis głosu (do generatora mowy),assets/audio/host/_voice-direction.txt,tekst,1,

@@ -1,0 +1,1277 @@
+[
+  {
+    "id": "IE-09-001",
+    "revision": 1,
+    "title": "Kronikarz",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Zapamiętaj jedno publiczne wydarzenie i opisz je przy checkpointcie.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Trafne przypomnienie."
+  },
+  {
+    "id": "IE-09-002",
+    "revision": 1,
+    "title": "Łącznik",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Zaproponuj dobrowolny sojusz graczowi, z którym jeszcze go nie zawierałeś.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Samo złożenie oferty kończy misję."
+  },
+  {
+    "id": "IE-09-003",
+    "revision": 1,
+    "title": "Odkrywca szczegółów",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Zapamiętaj dwa powracające motywy publicznych kart.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Wskaż oba przy podsumowaniu."
+  },
+  {
+    "id": "IE-09-004",
+    "revision": 1,
+    "title": "Mediator pokoju",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Przy sporze zaproponuj odczytanie kryterium karty.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Zaproponowanie procedury."
+  },
+  {
+    "id": "IE-09-005",
+    "revision": 1,
+    "title": "Mistrz nazewnictwa",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Nadaj nazwę wspólnemu artefaktowi.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Grupa użyje nazwy raz."
+  },
+  {
+    "id": "IE-09-006",
+    "revision": 1,
+    "title": "Strażnik zasobu",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Przypomnij koszt zasobu przed głosowaniem.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Koszt podany poprawnie."
+  },
+  {
+    "id": "IE-09-007",
+    "revision": 1,
+    "title": "Łowca skojarzeń",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Dodaj wskazówkę, która pomoże innemu graczowi bez podania odpowiedzi.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Ktoś wykorzystuje wskazówkę."
+  },
+  {
+    "id": "IE-09-008",
+    "revision": 1,
+    "title": "Dyplomata",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Zaproponuj dobrowolną wymianę.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Oferta złożona bez presji."
+  },
+  {
+    "id": "IE-09-009",
+    "revision": 1,
+    "title": "Obserwator",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Zapamiętaj, kto zdobył pierwszy punkt kampanii.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Poprawna odpowiedź."
+  },
+  {
+    "id": "IE-09-010",
+    "revision": 1,
+    "title": "Głos rozsądku",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Zaproponuj spokojny wariant karty bez utraty nagrody.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Wariant zaproponowany."
+  },
+  {
+    "id": "IE-09-011",
+    "revision": 1,
+    "title": "Mistrz puenty",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Dodaj nieszkodliwą puentę do publicznej wypowiedzi.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Grupa rozpoznaje puentę."
+  },
+  {
+    "id": "IE-09-012",
+    "revision": 1,
+    "title": "Kartograf",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Wskaż drogę do kolejnego checkpointu na podstawie mapy.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Wybór dokonany."
+  },
+  {
+    "id": "IE-09-013",
+    "revision": 1,
+    "title": "Strażnik czasu",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Spokojnie przypomnij o kończącym się limicie.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Neutralne przypomnienie."
+  },
+  {
+    "id": "IE-09-014",
+    "revision": 1,
+    "title": "Wspólnik opowieści",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Dodaj element do historii innego gracza, zachowując jego pomysł.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Autor akceptuje element."
+  },
+  {
+    "id": "IE-09-015",
+    "revision": 1,
+    "title": "Poszukiwacz reguł",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Przypomnij jedną specjalną regułę świata przed użyciem.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Reguła poprawnie przywołana."
+  },
+  {
+    "id": "IE-09-016",
+    "revision": 1,
+    "title": "Dobry gospodarz",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Zaproponuj mniej aktywnemu graczowi wybór roli lub spasowanie.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Możliwość zaoferowana bez nacisku."
+  },
+  {
+    "id": "IE-09-017",
+    "revision": 1,
+    "title": "Kolekcjoner wskazówek",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Zapamiętaj wskazówkę i użyj jej w finale.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Wskazówka przywołana."
+  },
+  {
+    "id": "IE-09-018",
+    "revision": 1,
+    "title": "Mistrz współpracy",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Wykonaj kartę w duecie, oddając partnerowi równą przestrzeń.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Obie osoby wnoszą wkład."
+  },
+  {
+    "id": "IE-09-019",
+    "revision": 1,
+    "title": "Cichy strateg",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Przewidź wynik jednej decyzji i porównaj prognozę.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Prognoza sprawdzona."
+  },
+  {
+    "id": "IE-09-020",
+    "revision": 1,
+    "title": "Opiekun ekwipunku",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Podaj poprawny stan wspólnych zasobów przed decyzją.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Stan poprawny."
+  },
+  {
+    "id": "IE-09-021",
+    "revision": 1,
+    "title": "Łącznik światów",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Połącz publiczny motyw bieżącego i poprzedniego regionu.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Powiązanie wskazane."
+  },
+  {
+    "id": "IE-09-022",
+    "revision": 1,
+    "title": "Strażnik dobrowolności",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Przypomnij, że pominięcie karty jest dozwolone.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Przypomnienie w naturalnym momencie."
+  },
+  {
+    "id": "IE-09-023",
+    "revision": 1,
+    "title": "Mistrz podsumowania",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Po checkpointcie podaj zdanie o postępie drużyny.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Zdanie dotyczy postępu."
+  },
+  {
+    "id": "IE-09-024",
+    "revision": 1,
+    "title": "Posłaniec",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Przekaż publiczną wskazówkę narratora własnymi słowami.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Sens zachowany."
+  },
+  {
+    "id": "IE-09-025",
+    "revision": 1,
+    "title": "Odkrywca alternatyw",
+    "category": "TAJNE MISJE",
+    "worldIds": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05",
+      "W06",
+      "W07",
+      "W08",
+      "W09",
+      "W10",
+      "W11",
+      "W12"
+    ],
+    "playerMin": 2,
+    "playerMax": 10,
+    "durationSec": 60,
+    "intensity": 0,
+    "ageMode": "uniwersalna",
+    "props": [],
+    "physicalLevel": "brak",
+    "privacyLevel": "prywatna",
+    "instructions": "Zaproponuj alternatywny sposób wykonania zadania.",
+    "judgingMode": "kryterium_jawne",
+    "successOutcome": {
+      "points": 2,
+      "resourceDelta": 0
+    },
+    "failureOutcome": {
+      "points": 0,
+      "resourceDelta": 0
+    },
+    "skipOutcome": {
+      "points": 0,
+      "resourceDelta": 0,
+      "note": "Pominięcie bez kary; karta nie jest natychmiast losowana ponownie."
+    },
+    "twoPlayerVariant": "Role wykonawcy i oceniającego zmieniają się przy kolejnym użyciu; zadania zespołowe wykonują wspólnie obaj gracze. W zadaniu prywatnym drugi gracz nie widzi treści misji.",
+    "tags": [
+      "tajne misje",
+      "etap3"
+    ],
+    "status": "approved",
+    "editorialReviewDate": "2026-11-12",
+    "judgeGuide": "Alternatywa bezpieczna i zgodna z zasadami."
+  }
+]

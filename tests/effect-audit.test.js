@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const base=new URL('../data/03_Wydarzenia_i_Karty_Specjalne/',import.meta.url);
+const events=JSON.parse(readFileSync(new URL('wydarzenia_60.json',base),'utf8'));
+const specials=JSON.parse(readFileSync(new URL('karty_specjalne_08.json',base),'utf8'));
+const contract=JSON.parse(readFileSync(new URL('../data/effect_contract_v1_3.json',import.meta.url),'utf8'));
+test('wszystkie 60 wydarzeń mają rozpoznany, opisany efekt',()=>{assert.equal(events.length,60);for(const e of events){assert.ok(contract.events[e.effectType],`Brak kontraktu: ${e.id}/${e.effectType}`);assert.ok(e.effectValue);assert.ok(e.skipRule);}});
+test('każdy kod karty specjalnej ma jawny status implementacji',()=>{assert.equal(specials.length,8);for(const s of specials)assert.ok(contract.specials[s.code],`Brak kontraktu: ${s.code}`);});
+test('brak nieudokumentowanych typów efektów wydarzeń',()=>{assert.deepEqual([...new Set(events.map(e=>e.effectType))].sort(),contract.dataAudit.eventTypes);});
+test('karty specjalne i kontrakt mają dokładnie ten sam zestaw kodów',()=>{assert.deepEqual(specials.map(s=>s.code).sort(),contract.dataAudit.specialCodes.slice().sort());});

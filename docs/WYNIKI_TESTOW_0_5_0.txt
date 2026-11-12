@@ -1,0 +1,16 @@
+IMPREZOWA EKSPEDYCJA — ETAP 5 — WYNIKI TESTÓW 0.5.0
+Data: 2026-11-12
+
+Automatyczne testy Node.js: 71 zaliczonych, 0 niezaliczonych.
+Walidacja biblioteki treści: valid=true.
+Karty: 250.
+Światy/scenariusze: 12.
+Wydarzenia: 60.
+Karty specjalne: 8.
+Misje tajne: 25.
+Osiągnięcia: 12.
+Plansze: 12/12 poprawne; każda ma 29 węzłów, 31 krawędzi i 29 osiągalnych węzłów.
+Smoke test silnika: utworzenie gry dla 2 osób i wykonanie komendy ROLL — zaliczony.
+Kontrola składni: app.js, server.js, sw.js — zaliczona.
+
+Ograniczenie testów: nie przeprowadzono jeszcze pełnej macierzy rzeczywistych przeglądarek i urządzeń ani testów UX z grupami. Testy nie potwierdzają działania multiplayera sieciowego.
